@@ -1,5 +1,5 @@
 terraform {
-  source = "git@github.com:jadonn/terraform-juju-openstack-testing.git//dashboard?ref=terragrunt"
+  source = "github.com/jadonn/terraform-juju-openstack-testing.git//dashboard?ref=terragrunt"
 }
 
 dependency "openstack_juju_model" {
