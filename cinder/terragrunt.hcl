@@ -123,9 +123,11 @@ inputs = {
   }
   series = include.global.locals.series
   config = {
-    block-device = "None"
-    glance-api-version = "2"
-    openstack-origin = include.global.locals.openstack_origin
+    cinder = {
+      block-device = "None"
+      glance-api-version = "2"
+      openstack-origin = include.global.locals.openstack_origin
+    }
   }
   units = {
     cinder = 1
