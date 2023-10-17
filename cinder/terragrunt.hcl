@@ -127,8 +127,12 @@ inputs = {
     glance-api-version = "2"
     openstack-origin = include.global.locals.openstack_origin
   }
-  units = 1
-  placement = "lxd:${dependency.machines.outputs.machine_ids[2]}"
+  units = {
+    cinder = 1
+  }
+  placement = {
+    cinder = "lxd:${dependency.machines.outputs.machine_ids[2]}"
+  }
   relation_names = {
     ceph_mons = dependency.ceph.outputs.application_names.mons
     glance    = dependency.glance.outputs.application_names.glance
