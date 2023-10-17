@@ -57,7 +57,10 @@ include "global" {
 
 inputs = {
   model = dependency.openstack_juju_model.outputs.name
-  channel = include.global.locals.openstack_channel
+  channel = {
+    openstack = include.global.locals.openstack_channel
+    mysql = include.global.locals.mysql_channel
+  }
   series = include.global.locals.series
   units = {
     keystone = 1
