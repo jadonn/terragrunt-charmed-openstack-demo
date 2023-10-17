@@ -11,6 +11,18 @@ dependency "openstack_juju_model" {
   mock_outputs_allowed_terraform_commands = ["validate", "plan"]
 }
 
+dependency "glance" {
+  config_path = "../glance"
+
+  mock_outputs = {
+    application_names = {
+      glance = "mock-glance"
+    }
+  }
+
+  mock_outputs_allowed_terraform_commands = ["validate", "plan"]
+}
+
 dependency "nova" {
   config_path = "../nova"
 
@@ -62,5 +74,9 @@ inputs = {
     osds  = join(",", dependency.machines.outputs.machine_ids)
     mons  = join(",", [for id in dependency.machines.outputs.machine_ids: "lxd:${id}"])
     rgw   = "lxd:${dependency.machines.outputs.machine_ids[1]}"
+  }
+  relation_names = {
+    nova    = dependency.nova.outputs.application_names.compute
+    glance  = dependency.glance.outputs.application_names.glance
   }
 }
