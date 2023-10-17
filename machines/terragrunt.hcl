@@ -24,6 +24,6 @@ inputs = {
   model         = dependency.openstack_juju_model.outputs.name
   series        = include.global.locals.series
   name_prefix   = "terragrunt"
-  constraints   = "hyperconverged"
+  constraints   = "tags=hyperconverged"
   machine_count = 3
 }
