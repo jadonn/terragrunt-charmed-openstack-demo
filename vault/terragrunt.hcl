@@ -53,7 +53,7 @@ inputs = {
   config = {
     vault = {
       totally-unsecure-auto-unlock = "true"
-      auto-generate-root-ca = "true"
+      auto-generate-root-ca-cert = "true"
     }
   }
   units = {
