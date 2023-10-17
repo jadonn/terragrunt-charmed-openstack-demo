@@ -8,7 +8,7 @@ dependency "openstack_juju_model" {
   mock_outputs = {
     name = "mock-juju-model-name"
   }
-  mock_outputs_allowed_terraform_commands = ["validate"]
+  mock_outputs_allowed_terraform_commands = ["validate", "plan"]
 }
 
 dependency "nova" {
@@ -21,7 +21,7 @@ dependency "nova" {
     }
   }
 
-  mock_outputs_allowed_terraform_commands = ["validate"]
+  mock_outputs_allowed_terraform_commands = ["validate", "plan"]
 }
 
 dependency "machines" {
@@ -29,7 +29,7 @@ dependency "machines" {
   mock_outputs = {
     machine_ids = ["0", "1", "2"]
   }
-  mock_outputs_allowed_terraform_commands = ["validate"]
+  mock_outputs_allowed_terraform_commands = ["validate", "plan"]
 }
 
 include "root" {

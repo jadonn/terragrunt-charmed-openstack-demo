@@ -9,7 +9,7 @@ dependency "openstack_juju_model" {
     name = "mock-juju-model-name"
   }
 
-  mock_outputs_allowed_terraform_commands = ["validate"]
+  mock_outputs_allowed_terraform_commands = ["validate", "plan"]
 }
 
 dependency "machines" {
@@ -19,7 +19,7 @@ dependency "machines" {
     machine_ids = ["0", "1", "2"]
   }
 
-  mock_outputs_allowed_terraform_commands = ["validate"]
+  mock_outputs_allowed_terraform_commands = ["validate", "plan"]
 }
 
 dependency "ceph" {
@@ -32,7 +32,7 @@ dependency "ceph" {
       rgw  = "mock-ceph-rgw"
     }
   }
-  mock_outputs_allowed_terraform_commands = ["validate"]
+  mock_outputs_allowed_terraform_commands = ["validate", "plan"]
 }
 
 dependency "glance" {
@@ -43,7 +43,7 @@ dependency "glance" {
     }
   }
 
-  mock_outputs_allowed_terraform_commands = ["validate"]
+  mock_outputs_allowed_terraform_commands = ["validate", "plan"]
 }
 
 dependency "keystone" {
@@ -55,7 +55,7 @@ dependency "keystone" {
     }
   }
 
-  mock_outputs_allowed_terraform_commands = ["validate"]
+  mock_outputs_allowed_terraform_commands = ["validate", "plan"]
 }
 
 dependency "mysql" {
@@ -67,7 +67,7 @@ dependency "mysql" {
     }
   }
 
-  mock_outputs_allowed_terraform_commands = ["validate"]
+  mock_outputs_allowed_terraform_commands = ["validate", "plan"]
 }
 
 dependency "nova" {
@@ -79,7 +79,7 @@ dependency "nova" {
     }
   }
   
-  mock_outputs_allowed_terraform_commands = ["validate"]
+  mock_outputs_allowed_terraform_commands = ["validate", "plan"]
 }
 
 dependency "rabbitmq" {
@@ -91,7 +91,7 @@ dependency "rabbitmq" {
     }
   }
 
-  mock_outputs_allowed_terraform_commands = ["validate"]
+  mock_outputs_allowed_terraform_commands = ["validate", "plan"]
 }
 
 dependency "vault" {
@@ -103,7 +103,7 @@ dependency "vault" {
     }
   }
 
-  mock_outputs_allowed_terraform_commands = ["validate"]
+  mock_outputs_allowed_terraform_commands = ["validate", "plan"]
 }
 
 include "root" {
