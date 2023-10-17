@@ -45,13 +45,19 @@ include "global" {
 
 inputs = {
   model   = dependency.openstack_juju_model.outputs.name
+  series = include.global.locals.series
   channel = "1.7/stable"
+  mysql = include.global.locals.mysql_channel
   config = {
     totally-unsecure-auto-unlock = "true"
     auto-generate-root-ca = "true"
   }
-  units = 1
-  placement = "lxd:${dependency.machines.outputs.machine_ids[0]}"
+  units = {
+    vault = 1
+  }
+  placement = {
+    vault = "lxd:${dependency.machines.outputs.machine_ids[0]}"
+  }
   relation_names = {
     mysql_innodb_cluster = dependency.mysql.outputs.application_names.mysql_innodb_cluster
   }
