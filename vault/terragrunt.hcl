@@ -47,10 +47,14 @@ inputs = {
   model   = dependency.openstack_juju_model.outputs.name
   series = include.global.locals.series
   channel = "1.7/stable"
-  mysql = include.global.locals.mysql_channel
+  mysql = {
+    channel = include.global.locals.mysql_channel
+  }
   config = {
-    totally-unsecure-auto-unlock = "true"
-    auto-generate-root-ca = "true"
+    vault = {
+      totally-unsecure-auto-unlock = "true"
+      auto-generate-root-ca = "true"
+    }
   }
   units = {
     vault = 1
